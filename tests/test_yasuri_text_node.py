@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import pytest
-from yasuri import text_node as tn
+from yasuri.text import TextNode
 import requests
 from bs4 import BeautifulSoup
 
@@ -45,6 +45,6 @@ def test_scrape_text_hello_yasuri():
     url = "http://localhost:8888/tests/htdocs/index.html"
     html = requests.get(url)
 
-    node = tn.TextNode(path='p:nth-child(1)')
+    node = TextNode(path='p:nth-child(1)')
     actual = node.inject(html.text)
     assert "Hello,Yasuri" == actual
