@@ -1,0 +1,7 @@
+
+requests
+beautifulsoup4
+
+# For development
+autopep8==1.4.4
+pytest
