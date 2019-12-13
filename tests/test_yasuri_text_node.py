@@ -60,3 +60,13 @@ def test_return_empty_text_if_no_match_node(index_html):
     node = TextNode(path='no_match_node')
     actual = node.inject(index_html.text)
     assert "" == actual
+
+
+def test_fail_if_invalid_selector(index_html):
+    """
+    fail if invalid selector
+    """
+    node = TextNode(path='p:nth-child[1]')
+    # with pytest.raises(ValueError):
+    with pytest.raises(Exception):
+        node.inject(index_html.text)
